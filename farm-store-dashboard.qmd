@@ -1,0 +1,216 @@
+---
+title: "CPP Farm Store CEP | AO4: Paid vs. Organic Search"
+author: "Julieta Diaz"
+format:
+  dashboard:
+    theme:
+      - cosmo
+      - styles/theme.scss
+    logo: images/favicon.svg
+    orientation: rows
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(dplyr)
+library(tidyr)
+library(readr)
+library(ggplot2)
+library(scales)
+library(knitr)
+
+# Brand palette, matched to styles/theme.scss
+pal <- c(
+  "Organic search"    = "#6B2737",
+  "Paid search (CPC)" = "#C98A9B",
+  "Referral"          = "#5E8DB3",
+  "Direct"            = "#8A4B5E"
+)
+
+theme_portfolio <- function(base = 13) {
+  theme_minimal(base_size = base) +
+    theme(
+      plot.background  = element_rect(fill = "white", colour = NA),
+      panel.grid.minor = element_blank(),
+      panel.grid.major.y = element_blank(),
+      axis.title       = element_text(colour = "#7A6E68"),
+      axis.text        = element_text(colour = "#2B2326"),
+      legend.position  = "top",
+      legend.title     = element_blank()
+    )
+}
+```
+
+```{r}
+#| label: data
+#| include: false
+# Google's public GA4 sample e-commerce dataset (Google Merchandise Store),
+# Nov 1, 2020 to Jan 31, 2021, queried in BigQuery and cached as a CSV.
+ga4_raw <- read_csv("data/ga4_channel_funnel.csv", show_col_types = FALSE)
+
+channel_lookup <- c(
+  "organic"  = "Organic search",
+  "cpc"      = "Paid search (CPC)",
+  "referral" = "Referral",
+  "(none)"   = "Direct"
+)
+
+ga4 <- ga4_raw |>
+  filter(medium %in% names(channel_lookup)) |>
+  mutate(
+    channel   = unname(channel_lookup[medium]),
+    conv_rate = purchased / users
+  )
+
+funnel <- ga4 |>
+  select(channel, users, viewed_item, added_to_cart, began_checkout, purchased) |>
+  pivot_longer(-channel, names_to = "step", values_to = "n") |>
+  mutate(step = factor(step,
+    levels = c("users", "viewed_item", "added_to_cart", "began_checkout", "purchased"),
+    labels = c("Visited", "Viewed item", "Added to cart", "Began checkout", "Purchased"))) |>
+  group_by(channel) |>
+  mutate(pct = n / max(n)) |>
+  ungroup()
+
+total_users      <- sum(ga4_raw$users)
+total_purchasers <- sum(ga4_raw$purchased)
+overall_cr       <- total_purchasers / total_users
+cr_organic <- ga4$conv_rate[ga4$medium == "organic"]
+cr_cpc     <- ga4$conv_rate[ga4$medium == "cpc"]
+
+chi_tab <- ga4 |>
+  filter(medium %in% c("organic", "cpc")) |>
+  transmute(channel, purchased, not_purchased = users - purchased)
+chi_mat <- as.matrix(chi_tab[, -1])
+rownames(chi_mat) <- chi_tab$channel
+chi_res <- chisq.test(chi_mat)
+```
+
+# Overview
+
+## Row {height="22%"}
+
+```{r}
+#| content: valuebox
+#| title: "Total users"
+list(icon = "people", color = "#6B2737", value = comma(total_users))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Purchasers"
+list(icon = "bag-heart", color = "#8A4B5E", value = comma(total_purchasers))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Organic search conversion"
+list(icon = "search-heart", color = "#5E8DB3", value = percent(cr_organic, 0.01))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Paid search conversion"
+list(icon = "megaphone", color = "#C98A9B", value = percent(cr_cpc, 0.01))
+```
+
+## Row {height="78%"}
+
+### Conversion {width="45%"}
+
+```{r}
+#| title: Visitor-to-purchase conversion rate by channel
+ga4 |>
+  ggplot(aes(x = reorder(channel, conv_rate), y = conv_rate, fill = channel)) +
+  geom_col(width = 0.65, show.legend = FALSE) +
+  geom_text(aes(label = percent(conv_rate, 0.01)), hjust = -0.15, size = 4.2,
+            colour = "#2B2326") +
+  coord_flip() +
+  scale_fill_manual(values = pal) +
+  scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.25))) +
+  labs(x = NULL, y = "Conversion rate") +
+  theme_portfolio()
+```
+
+### Funnel {width="55%"}
+
+```{r}
+#| title: Share of each channel's visitors reaching each funnel step
+funnel |>
+  ggplot(aes(step, pct, colour = channel, group = channel)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 2.6) +
+  scale_colour_manual(values = pal) +
+  scale_y_continuous(labels = percent) +
+  labs(x = NULL, y = "% of channel visitors") +
+  theme_portfolio() +
+  theme(panel.grid.major.y = element_line(colour = "#F1EBE1"))
+```
+
+# Paid vs. Organic
+
+## Row {height="55%"}
+
+::: {.card title="What the test asks"}
+**Analytics Objective (AO4):** Analyze GA4 conversion path data to evaluate whether Google Shopping Ads would improve traffic-to-purchase conversion for the CPP Farm Store.
+
+A chi-square test of independence checks whether purchasing depends on the traffic channel (organic search vs. paid search).
+
+- Chi-square = `{r} round(chi_res$statistic, 2)`, df = `{r} chi_res$parameter`, p = `{r} format.pval(chi_res$p.value, digits = 2)`
+- Paid search converted at **`{r} percent(cr_cpc, 0.01)`** vs. **`{r} percent(cr_organic, 0.01)`** for organic search.
+:::
+
+::: {.card title="What it means for the Farm Store"}
+In this sample store, paid clicks converted **lower** than organic search. Paying for traffic did not automatically produce more buyers, which supports research arguing that trust and perceived value drive purchases from Shopping Ads more than exposure alone.
+
+Before spending on ads, the Farm Store should strengthen organic SEO and measure its own GA4 baseline, then test Shopping Ads in a short, tracked campaign.
+:::
+
+## Row {height="45%"}
+
+```{r}
+#| title: Purchasers vs. non-purchasers by channel
+ga4 |>
+  filter(medium %in% c("organic", "cpc")) |>
+  transmute(channel,
+            Purchased = purchased,
+            `Did not purchase` = users - purchased) |>
+  pivot_longer(-channel, names_to = "outcome", values_to = "n") |>
+  group_by(channel) |>
+  mutate(share = n / sum(n)) |>
+  ungroup() |>
+  filter(outcome == "Purchased") |>
+  ggplot(aes(channel, share, fill = channel)) +
+  geom_col(width = 0.5, show.legend = FALSE) +
+  geom_text(aes(label = percent(share, 0.01)), vjust = -0.6, size = 4.5) +
+  scale_fill_manual(values = pal) +
+  scale_y_continuous(labels = percent, expand = expansion(mult = c(0, 0.2))) +
+  labs(x = NULL, y = "Share who purchased") +
+  theme_portfolio()
+```
+
+# Data
+
+## Row {height="70%"}
+
+```{r}
+#| title: Users and funnel counts by channel
+ga4 |>
+  transmute(
+    Channel           = channel,
+    Users             = comma(users),
+    `Viewed item`     = comma(viewed_item),
+    `Added to cart`   = comma(added_to_cart),
+    `Began checkout`  = comma(began_checkout),
+    Purchased         = comma(purchased),
+    `Conversion rate` = percent(conv_rate, 0.01)
+  ) |>
+  kable(align = "lrrrrrr")
+```
+
+## Row {height="30%"}
+
+::: {.card title="About the data"}
+Source: Google's public GA4 sample e-commerce dataset (Google Merchandise Store, `bigquery-public-data.ga4_obfuscated_sample_ecommerce`), November 2020 to January 2021, queried in BigQuery with SQL and cached as a CSV. It has the same schema as the Farm Store's future GA4 export, so this dashboard will update with real Farm Store data by swapping one file.
+:::

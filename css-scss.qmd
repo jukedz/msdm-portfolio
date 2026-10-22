@@ -1,0 +1,240 @@
+---
+title: "Styling with CSS and SCSS"
+subtitle: "How this website gets its look"
+title-block-banner: true
+---
+
+## Why Style a Quarto Website?
+
+Quarto gives every website a clean default look, but a portfolio should feel like **you**. With CSS and SCSS, I can control colors, fonts, spacing, and components across every page from one or two files, instead of formatting each page by hand. That keeps my personal brand consistent, which matters a lot in beauty and fashion marketing, where visual identity is everything.
+
+::: {.callout-note}
+## The short version
+
+- **HTML** is the structure of a page (headings, paragraphs, images).
+- **CSS** is the style rules that decide how that structure looks.
+- **SCSS** (Sass) is CSS with superpowers: variables, nesting, and reusable values.
+:::
+
+## How CSS Works
+
+Every CSS rule has a **selector** (what to style) and **declarations** (how to style it).
+
+```css
+h2 {
+  color: #6B2737;          /* property: value */
+  border-bottom: 1px solid #F3D9DC;
+}
+```
+
+::: panel-tabset
+### Selectors
+
+| Selector | Example | Targets |
+|------------------|------------------|----------------------------------|
+| Element | `h2` | Every level-two heading |
+| Class | `.pill` | Any element with `class="pill"` |
+| ID | `#about-me` | The one element with that id |
+| Descendant | `.navbar .nav-link` | Links inside the navbar only |
+| Pseudo-class | `.btn-pill:hover` | A button while the mouse is over it |
+
+: Common CSS selectors {#tbl-selectors}
+
+### Attributes
+
+Some of the properties I use most on this site:
+
+- **Color and background:** `color`, `background`, `linear-gradient(...)`
+- **Typography:** `font-family`, `font-size`, `letter-spacing`, `text-transform`
+- **Box model:** `padding`, `margin`, `border`, `border-radius`
+- **Effects:** `box-shadow`, `transform`, `transition`
+
+### Layout
+
+The home page hero uses **CSS Grid** to place my intro text and photo side by side, then stacks them on phones with a media query:
+
+```css
+.hero {
+  display: grid;
+  grid-template-columns: 1.25fr 0.9fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+}
+```
+:::
+
+## How SCSS Reduces Repetition
+
+Plain CSS makes me repeat the same color code dozens of times. SCSS lets me store it once in a **variable** and reuse it everywhere. If I ever rebrand, I change one line.
+
+::: {.columns}
+::: {.column width="48%"}
+**Plain CSS: repeated values**
+
+```css
+h2 { color: #6B2737; }
+.btn-pill { background: #6B2737; }
+.navbar .nav-link { color: #6B2737; }
+```
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+**SCSS: one variable**
+
+```scss
+$burgundy: #6B2737;
+
+h2 { color: $burgundy; }
+.btn-pill { background: $burgundy; }
+.navbar .nav-link { color: $burgundy; }
+```
+:::
+:::
+
+SCSS also supports **nesting**, which keeps related rules together. Here is the real button style from this site:
+
+```scss
+.btn-pill {
+  background: $burgundy;
+  border-radius: 999px;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1.5px solid $burgundy;
+  }
+}
+```
+
+The `&` means "this same element," so `&:hover` becomes `.btn-pill:hover` when Sass compiles it to CSS.
+
+## How Quarto Uses SCSS
+
+A Quarto SCSS theme file has two special sections:
+
+| Section | What goes in it | Example from my site |
+|------------------------|------------------------------|-------------------------------|
+| `/*-- scss:defaults --*/` | Variables, including Bootstrap and Quarto ones | `$body-bg: $cream;` |
+| `/*-- scss:rules --*/` | Regular CSS rules that use those variables | `.navbar .nav-link { ... }` |
+
+: The two sections of a Quarto SCSS file {#tbl-sections}
+
+I **layer** my theme on top of the Bootswatch `cosmo` theme in `_quarto.yml`, so I only override what I want to change:
+
+```yaml
+format:
+  html:
+    theme:
+      - cosmo
+      - styles/theme.scss
+    css: styles/extras.css
+```
+
+::: {.callout-tip}
+## Order matters
+
+Later themes override earlier ones. Because `theme.scss` comes after `cosmo`, my colors and fonts win. The extra `extras.css` file loads last and holds layout pieces like the hero and timeline.
+:::
+
+## My Design Choices
+
+### Color Palette
+
+I chose a soft, editorial palette inspired by beauty brand websites: deep burgundy for confidence, blush and sky blue for softness, and warm cream instead of plain white.
+
+::: swatch-grid
+::: swatch
+::: {.chip style="background:#6B2737;"}
+:::
+::: label
+**Burgundy** `$burgundy`<br>`#6B2737`
+:::
+:::
+
+::: swatch
+::: {.chip style="background:#8A4B5E;"}
+:::
+::: label
+**Plum** `$plum`<br>`#8A4B5E`
+:::
+:::
+
+::: swatch
+::: {.chip style="background:#F3D9DC;"}
+:::
+::: label
+**Blush** `$blush`<br>`#F3D9DC`
+:::
+:::
+
+::: swatch
+::: {.chip style="background:#CFE3F1;"}
+:::
+::: label
+**Sky** `$sky`<br>`#CFE3F1`
+:::
+:::
+
+::: swatch
+::: {.chip style="background:#FBF7F1;"}
+:::
+::: label
+**Cream** `$cream`<br>`#FBF7F1`
+:::
+:::
+
+::: swatch
+::: {.chip style="background:#2B2326;"}
+:::
+::: label
+**Ink** `$ink`<br>`#2B2326`
+:::
+:::
+:::
+
+### Fonts
+
+I load three Google Fonts with one `@import` line in the SCSS defaults:
+
+- **Playfair Display** for headings: an elegant, high-contrast serif with a fashion-magazine feel.
+- **Pinyon Script** for small accents, like the "Hi, I'm" on my home page.
+- **Inter** for body text: clean and easy to read at any size.
+
+### Accessibility
+
+Pretty only works if people can read it. I kept dark ink text on a light cream background for strong contrast, used the script font only for short decorative words, and never rely on color alone to carry meaning.[^1]
+
+[^1]: The Web Content Accessibility Guidelines (WCAG) recommend a contrast ratio of at least 4.5:1 for normal body text.
+
+## Live Examples
+
+These components are styled by my SCSS and CSS files. Hover over the buttons to see the transition.
+
+[Primary button]{.btn-pill} [Outline button]{.btn-pill .outline}
+
+::: pill-wrap
+[Skill pill]{.pill} [Another pill]{.pill}
+:::
+
+::: soft-card
+This is a `.soft-card`: a white card with rounded corners, a light border, and a soft burgundy-tinted shadow.
+:::
+
+::: pull-quote
+This is a `.pull-quote`, used for my career aspiration on the home page.
+:::
+
+## Source Files
+
+- [`styles/theme.scss`](https://github.com/jukedz/msdm-portfolio/blob/main/styles/theme.scss): variables and rules
+- [`styles/extras.css`](https://github.com/jukedz/msdm-portfolio/blob/main/styles/extras.css): layout for the hero, timeline, and swatches
+- [`_quarto.yml`](https://github.com/jukedz/msdm-portfolio/blob/main/_quarto.yml): where the theme is applied to the whole site

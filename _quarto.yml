@@ -1,0 +1,58 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - .nojekyll
+
+website:
+  title: "Julieta Diaz"
+  site-url: "https://jukedz.github.io/msdm-portfolio/"
+  description: "Digital marketing and consumer insights portfolio of Julieta Diaz, MSDM candidate at Cal Poly Pomona."
+  favicon: images/favicon.svg
+  page-navigation: true
+  back-to-top-navigation: true
+  navbar:
+    logo: images/favicon.svg
+    title: "Julieta Diaz"
+    left:
+      - href: index.qmd
+        text: Home
+      - href: cep-dashboard.qmd
+        text: CEP Dashboard
+      - href: css-scss.qmd
+        text: Styling with SCSS
+      - href: listings.qmd
+        text: Portfolio Listings
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/julieta-diaz-91538b1b8
+        aria-label: LinkedIn
+      - icon: github
+        href: https://github.com/jukedz/msdm-portfolio
+        aria-label: GitHub
+  page-footer:
+    left: "© 2026 Julieta Diaz"
+    center: "Built with [Quarto](https://quarto.org) and styled with custom SCSS"
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/julieta-diaz-91538b1b8
+      - icon: github
+        href: https://github.com/jukedz/msdm-portfolio
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles/theme.scss
+    css: styles/extras.css
+    toc: true
+    toc-location: right
+    smooth-scroll: true
+    link-external-newwindow: true
+    code-copy: true
+
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false

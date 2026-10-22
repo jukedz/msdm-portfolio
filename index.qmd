@@ -1,0 +1,94 @@
+---
+pagetitle: "Julieta Diaz | Digital Marketing and Consumer Insights"
+toc: false
+---
+
+::: hero
+::: hero-text
+[Hi, I'm]{.eyebrow}
+
+[Julieta *Diaz*]{.hero-name}
+
+[Digital Marketing · Data Analytics · Consumer Insights]{.hero-tagline}
+
+I am a Master of Science in Digital Marketing (MSDM) candidate at Cal Poly Pomona with a background in psychology. I study how people think, shop, and connect with brands, and I use data to turn those insights into marketing strategies that feel personal.
+
+[View my work](listings.qmd){.btn-pill} [See my dashboard](cep-dashboard.qmd){.btn-pill .outline}
+:::
+
+::: polaroid
+![](images/julieta-headshot.jpg){fig-alt="Headshot of Julieta Diaz"}
+
+[Julieta]{.caption}
+:::
+:::
+
+## About Me
+
+I bring together three things I care about: **psychology**, **marketing**, and **data**. My undergraduate training in psychology taught me why consumers make the choices they do, and the MSDM program is giving me the analytics and technical skills to measure and act on those choices.
+
+Outside the classroom, I work in public sector administration, where I manage contract documentation and communication across departments, and I run **Juke Vintage**, my own secondhand and vintage clothing resale shop. Running a small fashion business has given me hands-on experience with product photography, listings, pricing, and what makes a shopper click "buy."
+
+## Career Aspirations
+
+::: pull-quote
+I want to transition into the beauty industry, where I can combine my passion for marketing, data analytics, and consumer behavior to develop innovative digital marketing strategies.
+:::
+
+Ultimately, I hope to grow into a **leadership role** where I can use data-driven insights and creativity to influence decisions and help brands connect with their consumers.
+
+## Skills
+
+::: panel-tabset
+### Analytics and Data
+
+::: pill-wrap
+[R]{.pill} [Quarto]{.pill} [SQL]{.pill} [BigQuery]{.pill} [GitHub]{.pill}
+:::
+
+I clean, analyze, and visualize data in R with the tidyverse, query large datasets in Google BigQuery with SQL, and publish reproducible reports and presentations with Quarto and GitHub Pages.
+
+### Marketing Platforms
+
+::: pill-wrap
+[GA4]{.pill} [Google Ads]{.pill} [Shopify]{.pill}
+:::
+
+I have set up and analyzed Google Analytics 4, completed Google Shopping Ads coursework, and built and tested an e-commerce storefront in Shopify.
+
+### Research and Design
+
+::: pill-wrap
+[Qualtrics]{.pill} [Canva]{.pill}
+:::
+
+I design surveys and experiments in Qualtrics, including randomized ad conditions, and create brand and presentation visuals in Canva.
+:::
+
+## Education
+
+::: timeline
+::: timeline-item
+[Expected Summer 2027]{.when}
+
+[Master of Science in Digital Marketing (MSDM)]{.what}
+
+California State Polytechnic University, Pomona
+
+Culminating Experience Project: digital marketing and analytics consulting for the CPP Farm Store at Kellogg Ranch.
+:::
+
+::: timeline-item
+[2021]{.when}
+
+[Bachelor's Degree in Psychology]{.what}
+
+California State University, San Bernardino
+:::
+:::
+
+## Let's Connect
+
+I am always happy to talk about beauty marketing, consumer research, and data storytelling.
+
+[Connect on LinkedIn](https://www.linkedin.com/in/julieta-diaz-91538b1b8){.btn-pill} [View this site on GitHub](https://github.com/jukedz/msdm-portfolio){.btn-pill .outline}

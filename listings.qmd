@@ -1,0 +1,112 @@
+---
+title: "Portfolio Listings"
+subtitle: "My work, organized with Quarto listings"
+title-block-banner: true
+toc: false
+listing:
+  - id: portfolio-grid
+    contents: projects.yml
+    type: grid
+    grid-columns: 3
+    image-height: 170px
+    sort: "date desc"
+    sort-ui: [date, title]
+    filter-ui: true
+    categories: unnumbered
+    fields: [image, title, description, categories, date]
+    date-format: "MMM D, YYYY"
+  - id: portfolio-table
+    contents: projects.yml
+    type: table
+    sort: "date desc"
+    sort-ui: false
+    filter-ui: false
+    fields: [date, title, categories]
+    field-display-names:
+      date: "Date"
+      title: "Project"
+      categories: "Topics"
+    date-format: "MMM D, YYYY"
+---
+
+## My Projects
+
+Search, sort, or click a topic in the sidebar to filter. Each card links to the live project.
+
+::: {#portfolio-grid}
+:::
+
+## What Is a Listing?
+
+A **listing** is a Quarto feature that automatically builds a page of links, like a blog index or a project portfolio, from a set of items. Instead of hand-coding a card for every project, I describe each project once, and Quarto generates the cards, the sorting, the search box, and the category filters for me.
+
+::: {.callout-note}
+## Why listings are useful for a portfolio
+
+- **Consistent:** every project gets the same layout.
+- **Easy to update:** adding a project is one new entry, not new HTML.
+- **Interactive:** visitors can search, sort, and filter by topic.
+:::
+
+## Two Ways to Fill a Listing
+
+::: panel-tabset
+### From a YAML file (what I used)
+
+All my projects live in one file, [`projects.yml`](https://github.com/jukedz/msdm-portfolio/blob/main/projects.yml). Each item has a title, description, link, image, date, and categories:
+
+```yaml
+- title: "CEP Dashboard: Paid vs. Organic Search"
+  description: "A Quarto dashboard comparing paid and organic search..."
+  path: cep-dashboard.qmd
+  image: images/projects/cep-dashboard.svg
+  date: "2026-10-22"
+  categories: [Dashboard, GA4, R]
+```
+
+This works best for a portfolio, because many of my projects live on other pages or in other repositories.
+
+### From Quarto documents
+
+For a blog, each post is its own `.qmd` file inside a folder, and the listing reads the title, date, and categories from each post's YAML header:
+
+```yaml
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+```
+
+New posts appear automatically the next time the site renders.
+:::
+
+## Listing Options I Used
+
+The listing is defined in this page's YAML header. Here is what each option does:
+
+| Option | My setting | What it does |
+|--------------------|--------------------|----------------------------------------|
+| `contents` | `projects.yml` | Where the items come from |
+| `type` | `grid` | Displays items as cards (other types: `default`, `table`) |
+| `grid-columns` | `3` | Number of cards per row |
+| `sort` | `"date desc"` | Newest projects first |
+| `sort-ui` | `[date, title]` | Adds a sort menu for visitors |
+| `filter-ui` | `true` | Adds a search box |
+| `categories` | `true` | Adds clickable topic filters |
+| `fields` | `[image, title, ...]` | Which details each card shows |
+
+: Listing options used on this page {#tbl-options}
+
+## The Same Projects as a Table
+
+A page can hold more than one listing. Each listing has an `id`, and I place it on the page with an empty div that uses that id, like `::: {#portfolio-table}`. Here are the same seven projects from the same YAML file, shown with `type: table`:
+
+::: {#portfolio-table}
+:::
+
+::: {.callout-tip}
+## Styling the listing
+
+The card hover lift, rounded corners, and blush category tags come from my custom SCSS. See [Styling with SCSS](css-scss.qmd) for how that works.
+:::

@@ -1,0 +1,48 @@
+- title: "CEP Dashboard: Paid vs. Organic Search"
+  description: "A Quarto dashboard comparing paid and organic search conversion with GA4 e-commerce data for my CPP Farm Store analytics objective."
+  path: cep-dashboard.qmd
+  image: images/projects/cep-dashboard.svg
+  date: "2026-10-22"
+  categories: [Dashboard, GA4, R]
+
+- title: "Paid vs. Organic Search Proposal Deck"
+  description: "A Revealjs presentation of my CEP analytics objective with a reproducible chart, funnel, and chi-square test built from BigQuery data."
+  path: https://jukedz.github.io/ibm6500-assignments/M06-1-Revealjs-Presentation/farm-store-ao4-presentation.html
+  image: images/projects/revealjs-deck.svg
+  date: "2026-10-05"
+  categories: [Presentation, Quarto, BigQuery]
+
+- title: "Advanced Data Wrangling Reflection"
+  description: "A literate programming report on Revealjs and relational data in dplyr, with left_join(), anti_join(), and across() examples."
+  path: https://jukedz.github.io/ibm6500-assignments/M06-Reflection-Essay/m06-reflection-essay.html
+  image: images/projects/wrangling-reflection.svg
+  date: "2026-10-05"
+  categories: [R, Data Wrangling]
+
+- title: "SQL Learning Portfolio"
+  description: "Structured notes, syntax tables, and CEP applications from my DataCamp SQL coursework."
+  path: https://jukedz.github.io/ibm-6500-sql-learning-portfolio/
+  image: images/projects/sql-portfolio.svg
+  date: "2026-09-28"
+  categories: [SQL, Certification]
+
+- title: "CITI Human Subjects Research Certification"
+  description: "Completed the College of Business Administration human research course with a 96% score, preparing me for IRB-approved studies."
+  path: https://jukedz.github.io/ibm6500-assignments/IC8-2-CITI-Certification/citi-certification.html
+  image: images/projects/citi-certification.svg
+  date: "2026-10-05"
+  categories: [Research Ethics, Certification]
+
+- title: "Qualtrics Experimental Design"
+  description: "Randomized ad conditions, carry-forward logic, and scale fixes for a social media opinion leader study."
+  path: https://github.com/jukedz/ibm6500-assignments/tree/main/Qualtrics-M02-Experimental-Design
+  image: images/projects/qualtrics-experiment.svg
+  date: "2026-10-04"
+  categories: [Survey Research, Qualtrics]
+
+- title: "This Portfolio Website"
+  description: "A Quarto website with a custom SCSS theme, a dashboard, and YAML-driven listings, published on GitHub Pages."
+  path: https://github.com/jukedz/msdm-portfolio
+  image: images/projects/portfolio-site.svg
+  date: "2026-10-22"
+  categories: [Quarto, SCSS]

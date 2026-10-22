@@ -1,0 +1,75 @@
+---
+title: "CEP Dashboard"
+subtitle: "Paid vs. organic search for the CPP Farm Store"
+title-block-banner: true
+---
+
+## About the Project
+
+For my MSDM **Culminating Experience Project (CEP)**, my team is consulting for the **CPP Farm Store at Kellogg Ranch**. Each team member leads one analytics objective, and mine focuses on the store's websites:
+
+::: {.callout-note icon="false"}
+## My Analytics Objective (AO4)
+
+Analyze GA4 conversion path data to evaluate whether Google Shopping Ads would improve traffic-to-purchase conversion.
+:::
+
+The store's own GA4 data is not connected yet, so this dashboard uses **Google's public GA4 sample e-commerce dataset** (Google Merchandise Store). It has the exact same structure as a real GA4 export, so the same code will run on Farm Store data later.[^1]
+
+[^1]: The data was pulled from `bigquery-public-data.ga4_obfuscated_sample_ecommerce` in Google BigQuery with SQL, rolled up to one row per traffic channel, and saved as a CSV in this site's `data` folder.
+
+[Open the full dashboard](farm-store-dashboard.html){.btn-pill} [View the dashboard code](https://github.com/jukedz/msdm-portfolio/blob/main/farm-store-dashboard.qmd){.btn-pill .outline}
+
+## Dashboard Preview
+
+<iframe src="farm-store-dashboard.html" width="100%" height="720" style="border: 1px solid rgba(107, 39, 55, 0.15); border-radius: 0.9rem; box-shadow: 0 10px 26px rgba(107, 39, 55, 0.08);" title="CPP Farm Store GA4 dashboard"></iframe>
+
+## How the Dashboard Is Built
+
+The dashboard is a single Quarto file with `format: dashboard`. Its **headings become the layout**, and each code chunk becomes a card.
+
+::: panel-tabset
+### Pages
+
+Each level-one heading (`#`) is a page in the dashboard's navigation bar:
+
+| Page | What it shows |
+|------------------|-------------------------------------------------|
+| **Overview** | Value boxes with key numbers, conversion by channel, and the purchase funnel |
+| **Paid vs. Organic** | A chi-square test comparing paid and organic search, with takeaways for the Farm Store |
+| **Data** | The full table of users and funnel steps by channel, plus a note on the source |
+
+: Dashboard pages {#tbl-pages}
+
+### Rows and Cards
+
+- `## Row {height="22%"}` creates a row and sets its height.
+- `### Conversion {width="45%"}` creates a column inside a row and sets its width.
+- Every chunk with `#| title:` becomes a titled card, and `::: {.card title="..."}` wraps text in a card.
+
+### Value Boxes
+
+```r
+#| content: valuebox
+#| title: "Paid search conversion"
+list(icon = "megaphone", color = "#C98A9B", value = percent(cr_cpc, 0.01))
+```
+
+Value boxes use [Bootstrap icons](https://icons.getbootstrap.com) and my brand colors, so the numbers stand out at a glance.
+
+### Theme
+
+The dashboard uses the same theme as this website, `cosmo` layered with my own `styles/theme.scss`, and the plots use a matching color palette. That keeps the dashboard and the site looking like one brand.
+:::
+
+## Key Findings
+
+1. **Organic search brings the most visitors** of any channel.
+2. **Paid search converts lower** than organic search, and the difference is statistically significant.
+3. Across every channel, **only about 1 in 5 visitors views a product**, and **fewer than 1 in 4 product viewers add to cart**, so product discovery and product pages are worth improving before buying more traffic.
+
+::: {.callout-tip}
+## Recommendation for the Farm Store
+
+Strengthen organic SEO first, set a GA4 baseline, and then test Google Shopping Ads in a short, tracked campaign before committing a larger budget.
+:::

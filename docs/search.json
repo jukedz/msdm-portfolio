@@ -1,0 +1,191 @@
+[
+  {
+    "objectID": "listings.html",
+    "href": "listings.html",
+    "title": "Portfolio Listings",
+    "section": "",
+    "text": "Search, sort, or click a topic in the sidebar to filter. Each card links to the live project.\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\nDashboard\n\nGA4\n\nR\n\n\n\nA Quarto dashboard comparing paid and organic search conversion with GA4 e-commerce data for my CPP Farm Store analytics objective.\n\n\n\nOct 22, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto\n\nSCSS\n\n\n\nA Quarto website with a custom SCSS theme, a dashboard, and YAML-driven listings, published on GitHub Pages.\n\n\n\nOct 22, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPresentation\n\nQuarto\n\nBigQuery\n\n\n\nA Revealjs presentation of my CEP analytics objective with a reproducible chart, funnel, and chi-square test built from BigQuery data.\n\n\n\nOct 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\nData Wrangling\n\n\n\nA literate programming report on Revealjs and relational data in dplyr, with left_join(), anti_join(), and across() examples.\n\n\n\nOct 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nResearch Ethics\n\nCertification\n\n\n\nCompleted the College of Business Administration human research course with a 96% score, preparing me for IRB-approved studies.\n\n\n\nOct 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey Research\n\nQualtrics\n\n\n\nRandomized ad conditions, carry-forward logic, and scale fixes for a social media opinion leader study.\n\n\n\nOct 4, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSQL\n\nCertification\n\n\n\nStructured notes, syntax tables, and CEP applications from my DataCamp SQL coursework.\n\n\n\nSep 28, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "listings.html#my-projects",
+    "href": "listings.html#my-projects",
+    "title": "Portfolio Listings",
+    "section": "",
+    "text": "Search, sort, or click a topic in the sidebar to filter. Each card links to the live project.\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\nDashboard\n\nGA4\n\nR\n\n\n\nA Quarto dashboard comparing paid and organic search conversion with GA4 e-commerce data for my CPP Farm Store analytics objective.\n\n\n\nOct 22, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto\n\nSCSS\n\n\n\nA Quarto website with a custom SCSS theme, a dashboard, and YAML-driven listings, published on GitHub Pages.\n\n\n\nOct 22, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPresentation\n\nQuarto\n\nBigQuery\n\n\n\nA Revealjs presentation of my CEP analytics objective with a reproducible chart, funnel, and chi-square test built from BigQuery data.\n\n\n\nOct 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\nData Wrangling\n\n\n\nA literate programming report on Revealjs and relational data in dplyr, with left_join(), anti_join(), and across() examples.\n\n\n\nOct 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nResearch Ethics\n\nCertification\n\n\n\nCompleted the College of Business Administration human research course with a 96% score, preparing me for IRB-approved studies.\n\n\n\nOct 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSurvey Research\n\nQualtrics\n\n\n\nRandomized ad conditions, carry-forward logic, and scale fixes for a social media opinion leader study.\n\n\n\nOct 4, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSQL\n\nCertification\n\n\n\nStructured notes, syntax tables, and CEP applications from my DataCamp SQL coursework.\n\n\n\nSep 28, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "listings.html#what-is-a-listing",
+    "href": "listings.html#what-is-a-listing",
+    "title": "Portfolio Listings",
+    "section": "What Is a Listing?",
+    "text": "What Is a Listing?\nA listing is a Quarto feature that automatically builds a page of links, like a blog index or a project portfolio, from a set of items. Instead of hand-coding a card for every project, I describe each project once, and Quarto generates the cards, the sorting, the search box, and the category filters for me.\n\n\n\n\n\n\nNoteWhy listings are useful for a portfolio\n\n\n\n\nConsistent: every project gets the same layout.\nEasy to update: adding a project is one new entry, not new HTML.\nInteractive: visitors can search, sort, and filter by topic."
+  },
+  {
+    "objectID": "listings.html#two-ways-to-fill-a-listing",
+    "href": "listings.html#two-ways-to-fill-a-listing",
+    "title": "Portfolio Listings",
+    "section": "Two Ways to Fill a Listing",
+    "text": "Two Ways to Fill a Listing\n\nFrom a YAML file (what I used)From Quarto documents\n\n\nAll my projects live in one file, projects.yml. Each item has a title, description, link, image, date, and categories:\n- title: \"CEP Dashboard: Paid vs. Organic Search\"\n  description: \"A Quarto dashboard comparing paid and organic search...\"\n  path: cep-dashboard.qmd\n  image: images/projects/cep-dashboard.svg\n  date: \"2026-10-22\"\n  categories: [Dashboard, GA4, R]\nThis works best for a portfolio, because many of my projects live on other pages or in other repositories.\n\n\nFor a blog, each post is its own .qmd file inside a folder, and the listing reads the title, date, and categories from each post’s YAML header:\nlisting:\n  contents: posts\n  sort: \"date desc\"\n  type: default\n  categories: true\nNew posts appear automatically the next time the site renders."
+  },
+  {
+    "objectID": "listings.html#listing-options-i-used",
+    "href": "listings.html#listing-options-i-used",
+    "title": "Portfolio Listings",
+    "section": "Listing Options I Used",
+    "text": "Listing Options I Used\nThe listing is defined in this page’s YAML header. Here is what each option does:\n\n\n\nTable 1: Listing options used on this page\n\n\n\n\n\n\n\n\n\n\nOption\nMy setting\nWhat it does\n\n\n\n\ncontents\nprojects.yml\nWhere the items come from\n\n\ntype\ngrid\nDisplays items as cards (other types: default, table)\n\n\ngrid-columns\n3\nNumber of cards per row\n\n\nsort\n\"date desc\"\nNewest projects first\n\n\nsort-ui\n[date, title]\nAdds a sort menu for visitors\n\n\nfilter-ui\ntrue\nAdds a search box\n\n\ncategories\ntrue\nAdds clickable topic filters\n\n\nfields\n[image, title, ...]\nWhich details each card shows"
+  },
+  {
+    "objectID": "listings.html#the-same-projects-as-a-table",
+    "href": "listings.html#the-same-projects-as-a-table",
+    "title": "Portfolio Listings",
+    "section": "The Same Projects as a Table",
+    "text": "The Same Projects as a Table\nA page can hold more than one listing. Each listing has an id, and I place it on the page with an empty div that uses that id, like ::: {#portfolio-table}. Here are the same seven projects from the same YAML file, shown with type: table:\n\n\n\n\n\n\nDate\n\n\n\nProject\n\n\n\nTopics\n\n\n\n\n\n\n\n\nOct 22, 2026\n\n\nCEP Dashboard: Paid vs. Organic Search\n\n\nDashboard, GA4, R\n\n\n\n\n\n\nOct 22, 2026\n\n\nThis Portfolio Website\n\n\nQuarto, SCSS\n\n\n\n\n\n\nOct 5, 2026\n\n\nPaid vs. Organic Search Proposal Deck\n\n\nPresentation, Quarto, BigQuery\n\n\n\n\n\n\nOct 5, 2026\n\n\nAdvanced Data Wrangling Reflection\n\n\nR, Data Wrangling\n\n\n\n\n\n\nOct 5, 2026\n\n\nCITI Human Subjects Research Certification\n\n\nResearch Ethics, Certification\n\n\n\n\n\n\nOct 4, 2026\n\n\nQualtrics Experimental Design\n\n\nSurvey Research, Qualtrics\n\n\n\n\n\n\nSep 28, 2026\n\n\nSQL Learning Portfolio\n\n\nSQL, Certification\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\nTipStyling the listing\n\n\n\nThe card hover lift, rounded corners, and blush category tags come from my custom SCSS. See Styling with SCSS for how that works."
+  },
+  {
+    "objectID": "cep-dashboard.html",
+    "href": "cep-dashboard.html",
+    "title": "CEP Dashboard",
+    "section": "",
+    "text": "For my MSDM Culminating Experience Project (CEP), my team is consulting for the CPP Farm Store at Kellogg Ranch. Each team member leads one analytics objective, and mine focuses on the store’s websites:\n\n\n\n\n\n\nNoteMy Analytics Objective (AO4)\n\n\n\nAnalyze GA4 conversion path data to evaluate whether Google Shopping Ads would improve traffic-to-purchase conversion.\n\n\nThe store’s own GA4 data is not connected yet, so this dashboard uses Google’s public GA4 sample e-commerce dataset (Google Merchandise Store). It has the exact same structure as a real GA4 export, so the same code will run on Farm Store data later.1\nOpen the full dashboard View the dashboard code"
+  },
+  {
+    "objectID": "cep-dashboard.html#about-the-project",
+    "href": "cep-dashboard.html#about-the-project",
+    "title": "CEP Dashboard",
+    "section": "",
+    "text": "For my MSDM Culminating Experience Project (CEP), my team is consulting for the CPP Farm Store at Kellogg Ranch. Each team member leads one analytics objective, and mine focuses on the store’s websites:\n\n\n\n\n\n\nNoteMy Analytics Objective (AO4)\n\n\n\nAnalyze GA4 conversion path data to evaluate whether Google Shopping Ads would improve traffic-to-purchase conversion.\n\n\nThe store’s own GA4 data is not connected yet, so this dashboard uses Google’s public GA4 sample e-commerce dataset (Google Merchandise Store). It has the exact same structure as a real GA4 export, so the same code will run on Farm Store data later.1\nOpen the full dashboard View the dashboard code"
+  },
+  {
+    "objectID": "cep-dashboard.html#dashboard-preview",
+    "href": "cep-dashboard.html#dashboard-preview",
+    "title": "CEP Dashboard",
+    "section": "Dashboard Preview",
+    "text": "Dashboard Preview"
+  },
+  {
+    "objectID": "cep-dashboard.html#how-the-dashboard-is-built",
+    "href": "cep-dashboard.html#how-the-dashboard-is-built",
+    "title": "CEP Dashboard",
+    "section": "How the Dashboard Is Built",
+    "text": "How the Dashboard Is Built\nThe dashboard is a single Quarto file with format: dashboard. Its headings become the layout, and each code chunk becomes a card.\n\nPagesRows and CardsValue BoxesTheme\n\n\nEach level-one heading (#) is a page in the dashboard’s navigation bar:\n\n\n\nTable 1: Dashboard pages\n\n\n\n\n\n\n\n\n\nPage\nWhat it shows\n\n\n\n\nOverview\nValue boxes with key numbers, conversion by channel, and the purchase funnel\n\n\nPaid vs. Organic\nA chi-square test comparing paid and organic search, with takeaways for the Farm Store\n\n\nData\nThe full table of users and funnel steps by channel, plus a note on the source\n\n\n\n\n\n\n\n\n\n## Row {height=\"22%\"} creates a row and sets its height.\n### Conversion {width=\"45%\"} creates a column inside a row and sets its width.\nEvery chunk with #| title: becomes a titled card, and ::: {.card title=\"...\"} wraps text in a card.\n\n\n\n#| content: valuebox\n#| title: \"Paid search conversion\"\nlist(icon = \"megaphone\", color = \"#C98A9B\", value = percent(cr_cpc, 0.01))\nValue boxes use Bootstrap icons and my brand colors, so the numbers stand out at a glance.\n\n\nThe dashboard uses the same theme as this website, cosmo layered with my own styles/theme.scss, and the plots use a matching color palette. That keeps the dashboard and the site looking like one brand."
+  },
+  {
+    "objectID": "cep-dashboard.html#key-findings",
+    "href": "cep-dashboard.html#key-findings",
+    "title": "CEP Dashboard",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nOrganic search brings the most visitors of any channel.\nPaid search converts lower than organic search, and the difference is statistically significant.\nAcross every channel, only about 1 in 5 visitors views a product, and fewer than 1 in 4 product viewers add to cart, so product discovery and product pages are worth improving before buying more traffic.\n\n\n\n\n\n\n\nTipRecommendation for the Farm Store\n\n\n\nStrengthen organic SEO first, set a GA4 baseline, and then test Google Shopping Ads in a short, tracked campaign before committing a larger budget."
+  },
+  {
+    "objectID": "cep-dashboard.html#footnotes",
+    "href": "cep-dashboard.html#footnotes",
+    "title": "CEP Dashboard",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe data was pulled from bigquery-public-data.ga4_obfuscated_sample_ecommerce in Google BigQuery with SQL, rolled up to one row per traffic channel, and saved as a CSV in this site’s data folder.↩︎"
+  },
+  {
+    "objectID": "css-scss.html",
+    "href": "css-scss.html",
+    "title": "Styling with CSS and SCSS",
+    "section": "",
+    "text": "Quarto gives every website a clean default look, but a portfolio should feel like you. With CSS and SCSS, I can control colors, fonts, spacing, and components across every page from one or two files, instead of formatting each page by hand. That keeps my personal brand consistent, which matters a lot in beauty and fashion marketing, where visual identity is everything.\n\n\n\n\n\n\nNoteThe short version\n\n\n\n\nHTML is the structure of a page (headings, paragraphs, images).\nCSS is the style rules that decide how that structure looks.\nSCSS (Sass) is CSS with superpowers: variables, nesting, and reusable values."
+  },
+  {
+    "objectID": "css-scss.html#why-style-a-quarto-website",
+    "href": "css-scss.html#why-style-a-quarto-website",
+    "title": "Styling with CSS and SCSS",
+    "section": "",
+    "text": "Quarto gives every website a clean default look, but a portfolio should feel like you. With CSS and SCSS, I can control colors, fonts, spacing, and components across every page from one or two files, instead of formatting each page by hand. That keeps my personal brand consistent, which matters a lot in beauty and fashion marketing, where visual identity is everything.\n\n\n\n\n\n\nNoteThe short version\n\n\n\n\nHTML is the structure of a page (headings, paragraphs, images).\nCSS is the style rules that decide how that structure looks.\nSCSS (Sass) is CSS with superpowers: variables, nesting, and reusable values."
+  },
+  {
+    "objectID": "css-scss.html#how-css-works",
+    "href": "css-scss.html#how-css-works",
+    "title": "Styling with CSS and SCSS",
+    "section": "How CSS Works",
+    "text": "How CSS Works\nEvery CSS rule has a selector (what to style) and declarations (how to style it).\nh2 {\n  color: #6B2737;          /* property: value */\n  border-bottom: 1px solid #F3D9DC;\n}\n\nSelectorsAttributesLayout\n\n\n\n\n\nTable 1: Common CSS selectors\n\n\n\n\n\n\n\n\n\n\nSelector\nExample\nTargets\n\n\n\n\nElement\nh2\nEvery level-two heading\n\n\nClass\n.pill\nAny element with class=\"pill\"\n\n\nID\n#about-me\nThe one element with that id\n\n\nDescendant\n.navbar .nav-link\nLinks inside the navbar only\n\n\nPseudo-class\n.btn-pill:hover\nA button while the mouse is over it\n\n\n\n\n\n\n\n\nSome of the properties I use most on this site:\n\nColor and background: color, background, linear-gradient(...)\nTypography: font-family, font-size, letter-spacing, text-transform\nBox model: padding, margin, border, border-radius\nEffects: box-shadow, transform, transition\n\n\n\nThe home page hero uses CSS Grid to place my intro text and photo side by side, then stacks them on phones with a media query:\n.hero {\n  display: grid;\n  grid-template-columns: 1.25fr 0.9fr;\n  gap: 2rem;\n}\n\n@media (max-width: 768px) {\n  .hero { grid-template-columns: 1fr; }\n}"
+  },
+  {
+    "objectID": "css-scss.html#how-scss-reduces-repetition",
+    "href": "css-scss.html#how-scss-reduces-repetition",
+    "title": "Styling with CSS and SCSS",
+    "section": "How SCSS Reduces Repetition",
+    "text": "How SCSS Reduces Repetition\nPlain CSS makes me repeat the same color code dozens of times. SCSS lets me store it once in a variable and reuse it everywhere. If I ever rebrand, I change one line.\n\n\nPlain CSS: repeated values\nh2 { color: #6B2737; }\n.btn-pill { background: #6B2737; }\n.navbar .nav-link { color: #6B2737; }\n\n\n\nSCSS: one variable\n$burgundy: #6B2737;\n\nh2 { color: $burgundy; }\n.btn-pill { background: $burgundy; }\n.navbar .nav-link { color: $burgundy; }\n\n\nSCSS also supports nesting, which keeps related rules together. Here is the real button style from this site:\n.btn-pill {\n  background: $burgundy;\n  border-radius: 999px;\n\n  &:hover {\n    transform: translateY(-2px);\n  }\n\n  &.outline {\n    background: transparent;\n    border: 1.5px solid $burgundy;\n  }\n}\nThe & means “this same element,” so &:hover becomes .btn-pill:hover when Sass compiles it to CSS."
+  },
+  {
+    "objectID": "css-scss.html#how-quarto-uses-scss",
+    "href": "css-scss.html#how-quarto-uses-scss",
+    "title": "Styling with CSS and SCSS",
+    "section": "How Quarto Uses SCSS",
+    "text": "How Quarto Uses SCSS\nA Quarto SCSS theme file has two special sections:\n\n\n\nTable 2: The two sections of a Quarto SCSS file\n\n\n\n\n\n\n\n\n\n\nSection\nWhat goes in it\nExample from my site\n\n\n\n\n/*-- scss:defaults --*/\nVariables, including Bootstrap and Quarto ones\n$body-bg: $cream;\n\n\n/*-- scss:rules --*/\nRegular CSS rules that use those variables\n.navbar .nav-link { ... }\n\n\n\n\n\n\nI layer my theme on top of the Bootswatch cosmo theme in _quarto.yml, so I only override what I want to change:\nformat:\n  html:\n    theme:\n      - cosmo\n      - styles/theme.scss\n    css: styles/extras.css\n\n\n\n\n\n\nTipOrder matters\n\n\n\nLater themes override earlier ones. Because theme.scss comes after cosmo, my colors and fonts win. The extra extras.css file loads last and holds layout pieces like the hero and timeline."
+  },
+  {
+    "objectID": "css-scss.html#my-design-choices",
+    "href": "css-scss.html#my-design-choices",
+    "title": "Styling with CSS and SCSS",
+    "section": "My Design Choices",
+    "text": "My Design Choices\n\nColor Palette\nI chose a soft, editorial palette inspired by beauty brand websites: deep burgundy for confidence, blush and sky blue for softness, and warm cream instead of plain white.\n\n\n\n\n\n\nBurgundy $burgundy#6B2737\n\n\n\n\n\n\n\nPlum $plum#8A4B5E\n\n\n\n\n\n\n\nBlush $blush#F3D9DC\n\n\n\n\n\n\n\nSky $sky#CFE3F1\n\n\n\n\n\n\n\nCream $cream#FBF7F1\n\n\n\n\n\n\n\nInk $ink#2B2326\n\n\n\n\n\nFonts\nI load three Google Fonts with one @import line in the SCSS defaults:\n\nPlayfair Display for headings: an elegant, high-contrast serif with a fashion-magazine feel.\nPinyon Script for small accents, like the “Hi, I’m” on my home page.\nInter for body text: clean and easy to read at any size.\n\n\n\nAccessibility\nPretty only works if people can read it. I kept dark ink text on a light cream background for strong contrast, used the script font only for short decorative words, and never rely on color alone to carry meaning.1"
+  },
+  {
+    "objectID": "css-scss.html#live-examples",
+    "href": "css-scss.html#live-examples",
+    "title": "Styling with CSS and SCSS",
+    "section": "Live Examples",
+    "text": "Live Examples\nThese components are styled by my SCSS and CSS files. Hover over the buttons to see the transition.\nPrimary button Outline button\n\nSkill pill Another pill\n\n\nThis is a .soft-card: a white card with rounded corners, a light border, and a soft burgundy-tinted shadow.\n\n\nThis is a .pull-quote, used for my career aspiration on the home page."
+  },
+  {
+    "objectID": "css-scss.html#source-files",
+    "href": "css-scss.html#source-files",
+    "title": "Styling with CSS and SCSS",
+    "section": "Source Files",
+    "text": "Source Files\n\nstyles/theme.scss: variables and rules\nstyles/extras.css: layout for the hero, timeline, and swatches\n_quarto.yml: where the theme is applied to the whole site"
+  },
+  {
+    "objectID": "css-scss.html#footnotes",
+    "href": "css-scss.html#footnotes",
+    "title": "Styling with CSS and SCSS",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe Web Content Accessibility Guidelines (WCAG) recommend a contrast ratio of at least 4.5:1 for normal body text.↩︎"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Julieta Diaz",
+    "section": "",
+    "text": "Hi, I’m\nJulieta Diaz\nDigital Marketing · Data Analytics · Consumer Insights\nI am a Master of Science in Digital Marketing (MSDM) candidate at Cal Poly Pomona with a background in psychology. I study how people think, shop, and connect with brands, and I use data to turn those insights into marketing strategies that feel personal.\nView my work See my dashboard\n\n\n\nJulieta"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Julieta Diaz",
+    "section": "About Me",
+    "text": "About Me\nI bring together three things I care about: psychology, marketing, and data. My undergraduate training in psychology taught me why consumers make the choices they do, and the MSDM program is giving me the analytics and technical skills to measure and act on those choices.\nOutside the classroom, I work in public sector administration, where I manage contract documentation and communication across departments, and I run Juke Vintage, my own secondhand and vintage clothing resale shop. Running a small fashion business has given me hands-on experience with product photography, listings, pricing, and what makes a shopper click “buy.”"
+  },
+  {
+    "objectID": "index.html#career-aspirations",
+    "href": "index.html#career-aspirations",
+    "title": "Julieta Diaz",
+    "section": "Career Aspirations",
+    "text": "Career Aspirations\n\nI want to transition into the beauty industry, where I can combine my passion for marketing, data analytics, and consumer behavior to develop innovative digital marketing strategies.\n\nUltimately, I hope to grow into a leadership role where I can use data-driven insights and creativity to influence decisions and help brands connect with their consumers."
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Julieta Diaz",
+    "section": "Skills",
+    "text": "Skills\n\nAnalytics and DataMarketing PlatformsResearch and Design\n\n\n\nR Quarto SQL BigQuery GitHub\n\nI clean, analyze, and visualize data in R with the tidyverse, query large datasets in Google BigQuery with SQL, and publish reproducible reports and presentations with Quarto and GitHub Pages.\n\n\n\nGA4 Google Ads Shopify\n\nI have set up and analyzed Google Analytics 4, completed Google Shopping Ads coursework, and built and tested an e-commerce storefront in Shopify.\n\n\n\nQualtrics Canva\n\nI design surveys and experiments in Qualtrics, including randomized ad conditions, and create brand and presentation visuals in Canva."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Julieta Diaz",
+    "section": "Education",
+    "text": "Education\n\n\nExpected Summer 2027\nMaster of Science in Digital Marketing (MSDM)\nCalifornia State Polytechnic University, Pomona\nCulminating Experience Project: digital marketing and analytics consulting for the CPP Farm Store at Kellogg Ranch.\n\n\n2021\nBachelor’s Degree in Psychology\nCalifornia State University, San Bernardino"
+  },
+  {
+    "objectID": "index.html#lets-connect",
+    "href": "index.html#lets-connect",
+    "title": "Julieta Diaz",
+    "section": "Let’s Connect",
+    "text": "Let’s Connect\nI am always happy to talk about beauty marketing, consumer research, and data storytelling.\nConnect on LinkedIn View this site on GitHub"
+  }
+]
